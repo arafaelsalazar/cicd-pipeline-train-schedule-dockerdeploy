@@ -8,7 +8,7 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
             steps {
-                scripts {
+                script {
                     app = docker.build("asalazarflores/train-schedule")
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
